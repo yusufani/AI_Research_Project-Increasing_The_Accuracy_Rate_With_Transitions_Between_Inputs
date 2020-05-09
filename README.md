@@ -60,15 +60,17 @@ eğitim kümesine yeni yapay örnekler eklemek yoluyla elde ettiğimiz yeni mode
  
 
 ![s](/images/sekil5.png)
-Eğitim kümesine eklenen verilerle elde edilen modellerin kullanımı için  n farklı  modelin birbiri ile farklı sonuçlar çıkardığı resimlerde başarım arttırılmıştır. Örnek olarak n sayısını 2 alırsak  Tablo-1'deki Base-1 ve Model-6 modelleri 10000 adet veri küme içeren test kümemizde yaklaşık 6,000 adetinde doğru sınıfı seçerken , sadece Base-1 modelinin doğru tahmin ettiği 1000 adet görüntü , sadece Model-5 modelinin doğru tahmin ettiği 1000 adet görüntü vardır.Bu sonuçlardan modellerin birlikte kullanılarak daha yüksek başarımlar elde edilebileceği görülmüştür.
+Eğitim kümesine eklenen verilerle elde edilen modellerin kullanımı için  n farklı  modelin birbiri ile farklı sonuçlar çıkardığı resimlerde başarım arttırılmıştır. Örnek olarak n sayısını 2 alırsak  Tablo-1'deki Base-1 ve Model-6 modelleri 10000 adet veri küme içeren test kümemizde yaklaşık 6,000 adetinde ortak olarak doğru sınıfı seçerken , sadece Base-1 modelinin doğru tahmin ettiği 1095 adet görüntü , sadece Model-6 modelinin doğru tahmin ettiği 1078 adet görüntü vardır.Bu sonuçlardan modellerin birlikte kullanılarak daha yüksek başarımlar elde edilebileceği düşünülmüştür.
 
 
-Burada yapılan işlem birbirinden farklı n adet modelin sonucunda verdiği modellerle yeni bir model oluşturduk.Burada oluşturulan model n 2 alınırsa 10 adet sınıftan 2 modelin sonuçları  20 adet veri elde eder. 
-İki modelin sonuçlarından yeni bir veri kümesi hazırlanmıştır.Bu veri kümesinde ilk modelin 10 sınıf için verdiği tahmin oranları ve ikinci modelin 10 sınıf için verdiği tahmin oranlarına karşılık resmin gerçek sınıfı eklenmiştir.. Eğitim kümesindeki tüm görüntülerden toplamda 50,000 adet eğitim verisi elde edilmiştir.
-
-
-![s](/images/sekil6.png)
+İki modelin sonuçlarından yeni bir veri kümesi hazırlanmıştır.Bu veri kümesinde ilk modelin 10 sınıf için verdiği tahmin oranları ve ikinci modelin 10 sınıf için verdiği tahmin oranlarına karşılık resmin gerçek sınıfı eklenmiştir.Eğitim kümesindeki tüm görüntülerden toplamda 50,000 adet eğitim verisi elde edilmiştir.
 
 Elde edilen eğitim verileri .... mimarilerine girdi olarak verilip yeni modeller eğitilmiştir. Çalışmamızda XGBoost , Decision Tree , Random Forest , Naive Bayes , Support Vector Machine , K-Nearest Neighbors kullanılmıştır.Tablo-2'deki sonuçlarda da görüldüğü üzere başarım oranları gözle görülür bir artış meydana gelmiştir.
 
+
+Elde edilen işlemler sonucunda modellerin başarısında artma gözükmüştür. Fakat aynı işlemleri farklı weight değerlerine sahip base modeller için denenince de başarımda benzer oranda artma gözükmüştür. Bunun üzerine en başarılı teknikler kullanılarak n sayısı arttırılmıştır. 
+![s](/images/sekil6.png)
+
+
+![s](/images/sekil7.png)
 
