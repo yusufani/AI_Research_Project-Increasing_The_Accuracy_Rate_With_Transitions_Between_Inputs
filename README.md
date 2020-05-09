@@ -63,14 +63,17 @@ eğitim kümesine yeni yapay örnekler eklemek yoluyla elde ettiğimiz yeni mode
 Eğitim kümesine eklenen verilerle elde edilen modellerin kullanımı için  n farklı  modelin birbiri ile farklı sonuçlar çıkardığı resimlerde başarım arttırılmıştır. Örnek olarak n sayısını 2 alırsak  Tablo-1'deki Base-1 ve Model-6 modelleri 10000 adet veri küme içeren test kümemizde yaklaşık 6,000 adetinde ortak olarak doğru sınıfı seçerken , sadece Base-1 modelinin doğru tahmin ettiği 1095 adet görüntü , sadece Model-6 modelinin doğru tahmin ettiği 1078 adet görüntü vardır.Bu sonuçlardan modellerin birlikte kullanılarak daha yüksek başarımlar elde edilebileceği düşünülmüştür.
 
 
-İki modelin sonuçlarından yeni bir veri kümesi hazırlanmıştır.Bu veri kümesinde ilk modelin 10 sınıf için verdiği tahmin oranları ve ikinci modelin 10 sınıf için verdiği tahmin oranlarına karşılık resmin gerçek sınıfı eklenmiştir.Eğitim kümesindeki tüm görüntülerden toplamda 50,000 adet eğitim verisi elde edilmiştir.
+İki modelin sonuçlarından yeni bir veri kümesi hazırlanmıştır.Bu veri kümesinde ilk modelin 10 sınıf için verdiği tahmin oranları ve ikinci modelin 10 sınıf için verdiği tahmin oranlarına karşılık resmin gerçek sınıfı eklenmiştir.Eğitim kümesindeki tüm görüntülerden toplamda 50,000 adet eğitim verisi elde edilmiştir.Yeni modeller için scit-learn kütüphanesi kullanılmıştır.
 
-Elde edilen eğitim verileri .... mimarilerine girdi olarak verilip yeni modeller eğitilmiştir. Çalışmamızda XGBoost , Decision Tree , Random Forest , Naive Bayes , Support Vector Machine , K-Nearest Neighbors kullanılmıştır.Tablo-2'deki sonuçlarda da görüldüğü üzere başarım oranları gözle görülür bir artış meydana gelmiştir.
+Elde edilen eğitim verileri modellere girdi olarak verilip yeni modeller eğitilmiştir. Çalışmamızda XGBoost , Decision Tree , Random Forest , Naive Bayes , Support Vector Machine , K-Nearest Neighbors kullanılmıştır.Tablo-2'deki sonuçlarda da görüldüğü üzere başarım oranları gözle görülür bir artış meydana gelmiştir.
 
 
 Elde edilen işlemler sonucunda modellerin başarısında artma gözükmüştür. Fakat aynı işlemleri farklı weight değerlerine sahip base modeller için denenince de başarımda benzer oranda artma gözükmüştür. Bunun üzerine en başarılı teknikler kullanılarak n sayısı arttırılmıştır. 
 ![s](/images/sekil6.png)
-
-
+Yukarıdaki tabloda Başlangıç numaraları modellerin başlangıç weightlerini , Model tiplerindeki Base Model hiçbir ekstra işlem yapılmamış durumu , Model-6 ise modellerin eğitim kümesine  her sınıf aynı sınıfa giderken maksimun noktadan üretilmiş ve kriterli seçimlerin yapıldığı modeli temsil etmektedir. İlk satır ilk sütundaki 0.7314 değerinin alttaki tabloda ifade şekli Base : 1 tipindedir.
 ![s](/images/sekil7.png)
+
+# Sonuç
+n sayısı 6 ve 12 olarak denemeler yapılmıştır. Yapılan deneyler sonucunda 6 adet base model birleşimi maksimun 0.7928'lik bir başarı oranı verirken 6 adet 3'ü base 3'ü Model-6 olmak üzere seçilen model 0.8032 lik bir doğruluk oranı göstermiştir. **Yaklaşık %1 oranında bir arttırım sağlanmıştır.** 
+
 
