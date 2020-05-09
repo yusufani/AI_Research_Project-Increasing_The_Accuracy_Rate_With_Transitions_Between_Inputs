@@ -49,16 +49,21 @@ Toplamda 60,000 adet görüntü içeren yeni veri kümesi için tüm modeller ay
 
 ![s](/images/sekil4.png)
 
-Tablo 1'deki doğruluk oranlarında modellerin başarım oranlarında düşmeler görülmektedir.Modeller arasında en başarılı olan yapay örneklerin pozitif yönde maksimun başarı gösterdiği noktadan seçilip kriterlerin uygulandığı model olmuştur.
+Yukarıdaki tabloda doğruluk oranlarında modellerin başarım oranlarında düşmeler görülmektedir. Modeller arasında en başarılı olan yapay örneklerin kendi sınıfına doğru götürülürken  pozitif yönde maksimun başarı gösterdiği noktadan seçilip kriterlerin uygulandığı model olmuştur.( Model-6 )
 
-Kriterlerin uygulanması modellerde başarının artmasını sağlamaktadır. Sınıfların seçimi konusunda rastgele ,her sınıfın kendi sınıfına gitmesi arasında kayda değer bir fark olmamaktadır. Özel sınıfların seçimi modelin başarımını düşürmektedir. Negatif yönde seçilen örnekler başarımı düşürmektedir. Yapay örneklerin en uygun seçilme noktası maksimun noktası olduğu görülmektedir.
+Kriterlerin uygulanması modellerde başarının artmasını sağlamaktadır kanısına varamıyoruz çünkü tablo dışında da olan denemelerimiz sonucunda bağımsız değişken olarak kriter uygulanmasını seçtiğimizde bazı modellerde artmalar bazı modellerde ise azalma gözükmektedir.. Sınıfların seçimi konusunda rastgele ,her sınıfın kendi sınıfına gitmesi ve özel olarak seçilmesi arasında kayda değer bir fark olmamaktadır. Negatif yönde seçilen örnekler başarımı düşürmektedir. Yapay örneklerin en uygun seçilme noktası maksimun noktası olduğu görülmektedir.
 
 ### B- Test Başarını Yükseltmek
 Modelin test anında verdiği olasılıklardan çıkarım yaparak doğruluk oranını yükseltmek başarımı yükseltmek için kullanılan yöntemlerden biridir. Çalışmamızda bir önceki başlıkta bahsettiğimiz
 eğitim kümesine yeni yapay örnekler eklemek yoluyla elde ettiğimiz yeni modellerin olasılıklarını kullandık.
 
-İki modelin birbiri ile farklı sonuçlar çıkardığı resimlerde başarım arttırılmıştır. Örnek olarak Tablo-1'deki Base-1 ve Model-5 modelleri 10000 adet veri küme içeren test kümemizde yaklaşık 6,000 adetinde doğru sınıfı seçerken , sadece Base-1 modelinin doğru tahmin ettiği 1000 adet görüntü , sadece Model-5 modelinin doğru tahmin ettiği 1000 adet görüntü vardır.Bu sonuçlardan modellerin birlikte kullanılarak daha yüksek başarımlar elde edilebileceği görülmüştür.
+ 
 
+![s](/images/sekil5.png)
+Eğitim kümesine eklenen verilerle elde edilen modellerin kullanımı için  n farklı  modelin birbiri ile farklı sonuçlar çıkardığı resimlerde başarım arttırılmıştır. Örnek olarak n sayısını 2 alırsak  Tablo-1'deki Base-1 ve Model-6 modelleri 10000 adet veri küme içeren test kümemizde yaklaşık 6,000 adetinde doğru sınıfı seçerken , sadece Base-1 modelinin doğru tahmin ettiği 1000 adet görüntü , sadece Model-5 modelinin doğru tahmin ettiği 1000 adet görüntü vardır.Bu sonuçlardan modellerin birlikte kullanılarak daha yüksek başarımlar elde edilebileceği görülmüştür.
+
+
+Burada yapılan işlem birbirinden farklı n adet modelin sonucunda verdiği modellerle yeni bir model oluşturduk.Burada oluşturulan model n 2 alınırsa 10 adet sınıftan 2 modelin sonuçları  20 adet veri elde eder. 
 İki modelin sonuçlarından yeni bir veri kümesi hazırlanmıştır.Bu veri kümesinde ilk modelin 10 sınıf için verdiği tahmin oranları ve ikinci modelin 10 sınıf için verdiği tahmin oranlarına karşılık resmin gerçek sınıfı eklenmiştir.. Eğitim kümesindeki tüm görüntülerden toplamda 50,000 adet eğitim verisi elde edilmiştir.
 
 
