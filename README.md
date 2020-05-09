@@ -6,14 +6,16 @@ Bir yapay zeka modelinin değerlendirilme unsurlarının başında doğruluk ora
 
 **Bu çalışmada görüntü sınıflandırmakla görevli modelin uzayını keşfederek, yeni veri eklemeden, verilerin uzayda birbirleri arasındaki geçiş matrislerinden yeni veriler üreterek başarımın arttırılması amaçlanmıştır.** İki farklı görüntü verisi arasındaki geçiş görüntüleri kısaca şöyle tarif edilebilir: İlk görüntüdeki ilgili piksel değeri ile son görüntüdeki ilgili piksel değeri arası n adet aralığa bölünür ve eşit oranda bu piksel değerleri arttırılır veya azaltılır.
 
-Örnek olarak : 
-BURAYA RESİM-1 
+Örnek olarak aşağıdaki örneği inceleyiniz.
+
+![s](/images/sekil1.png)
 
 Bu hususta yeni eklenen verilerle iki farklı yolda deneyler yapılması amaçlanmıştır.Bu yollardan ilki yeni elde edilmiş verilerin veri kümesine dahil edilerek doğruluk oranını yükseltmek ve ikincisi elde edilen verileri kullanarak modelin test edilmesine anında müdahaleler ederek başarımın arttırılmasıdır.
 # Veri Kümesi ve Mimari
 Deneyler CIFAR-10 veri kümesi üzerinde yapılmıştır.CIFAR-10 32*32 boyutlu renkli 60,000 görüntü içermektedir.Bu görüntülerden 50,000 adeti eğitim kümesinde yer alırken 10,000 adeti test kümesinde yer almıştır. CIFAR-10'da toplam 10 sınıfta görüntüler sınıflandırılmıştır.Bu sınıflar uçak, araba, kuş, kedi, geyik, köpek, kurbağa, at, gemi ve kamyondan oluşur.
 
-BURAYA ŞEKİL2 GELECEK
+![s](/images/sekil2.png)
+
 
 Deneyler CNN mimarisi üstünde denenmiştir. Seçilen [model](https://towardsdatascience.com/cifar-10-image-classification-in-tensorflow-5b501f7dc77c) Python programlama dilinde, Tensorflow kütüphanesinde oluşturulmuştur. Modelde optimizasyon algoritması olarak Adam kullanılmıştır.
 
@@ -28,7 +30,7 @@ Modelin başarımını arttırmak için farklı kriterlerde geçiş görüntüle
  Geçiş görüntülerinden alınacak örneklerin hangi noktadan alınacağı da başarımı etkileyen bir diğer unsundur. Çalışmamızda kaynak resmi başlangıç noktası olarak düşünürsek pozitif ve negatif yön olarak 2 farklı yönden örnekler alınmıştır. Pozitif yön kaynak görüntüden hedef görüntüye doğru berlirli adımlarla yaklaşmayı ifade ederken, negatif yön ise kaynak görüntüden başlayıp hedef görüntüden uzaklaşmak anlamına gelmektedir.
 Seçilen yöne göre farklı uzaklıkta örnekler seçmek de başarımı etkileyen bir faktör olarak alınmıştır.Örnek olarak kaynak görüntüden pozitif yönde olarak \%50 uzaklaşmak, kaynak görüntü ile hedef görüntü arasını 100 adıma ayırırsak 50. adımdaki görüntüye ulaşmak demektir.
 
-BURAYA ŞEKİL-3 GELECEK
+![s](/images/sekil3.png)
 
 Son olarak görüntü özel olarak da seçilebilir. Çalışmamızda geçiş görüntüleri elde ederken maksimumdan örnekler aldık. Maksimun ifadesi , kaynak görüntüden hedef görüntüye pozitif yönde giderken kaynak görüntünün sınıfının en yüksek olarak tahmin edildiği sınıfı ifade etmektedir.
 
@@ -45,7 +47,7 @@ Her sınıf için başarılı ve başarısız olarak 1000 görüntü seçilmişt
 
 Toplamda 60,000 adet görüntü içeren yeni veri kümesi için tüm modeller aynı ağırlık ve bias değerleri seçilmiştir.
 
-BURAYA ŞEKİL-4 GELECEK
+![s](/images/sekil4.png)
 
 Tablo 1'deki doğruluk oranlarında modellerin başarım oranlarında düşmeler görülmektedir.Modeller arasında en başarılı olan yapay örneklerin pozitif yönde maksimun başarı gösterdiği noktadan seçilip kriterlerin uygulandığı model olmuştur.
 
@@ -59,7 +61,8 @@ eğitim kümesine yeni yapay örnekler eklemek yoluyla elde ettiğimiz yeni mode
 
 İki modelin sonuçlarından yeni bir veri kümesi hazırlanmıştır.Bu veri kümesinde ilk modelin 10 sınıf için verdiği tahmin oranları ve ikinci modelin 10 sınıf için verdiği tahmin oranlarına karşılık resmin gerçek sınıfı eklenmiştir.. Eğitim kümesindeki tüm görüntülerden toplamda 50,000 adet eğitim verisi elde edilmiştir.
 
-BURAYA ŞEKİL-5 GELECEK
+
+![s](/images/sekil6.png)
 
 Elde edilen eğitim verileri .... mimarilerine girdi olarak verilip yeni modeller eğitilmiştir. Çalışmamızda XGBoost , Decision Tree , Random Forest , Naive Bayes , Support Vector Machine , K-Nearest Neighbors kullanılmıştır.Tablo-2'deki sonuçlarda da görüldüğü üzere başarım oranları gözle görülür bir artış meydana gelmiştir.
 
